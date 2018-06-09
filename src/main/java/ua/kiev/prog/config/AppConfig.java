@@ -36,10 +36,11 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         Properties jpaProp = new Properties();
         jpaProp.put("hibernate.hbm2ddl.auto", "create-drop");
 
+
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactory.setDataSource(dataSource);
         entityManagerFactory.setJpaVendorAdapter(jpaVendorAdapter);
-        entityManagerFactory.setJpaProperties(jpaProp);
+       entityManagerFactory.setJpaProperties(jpaProp);
         entityManagerFactory.setPackagesToScan("ua.kiev.prog");// где искать entity class
 
         return entityManagerFactory;
@@ -49,8 +50,9 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     public JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter(); // 2. JPA hinernate
         adapter.setShowSql(true);// info на консоль
-        //adapter.setGenerateDdl(true); // таблицы на основе ентати
-        adapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
+       // adapter.setGenerateDdl(true); // таблицы на основе ентати
+       // adapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
+        adapter.setDatabasePlatform("org.hibernate.dialect.MySQL5Dialect");
 
         return adapter;
     }

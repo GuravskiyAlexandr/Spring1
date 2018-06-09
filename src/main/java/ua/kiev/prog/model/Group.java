@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="Groups")
+@Table(name="Groupss")
 public class Group {
     @Id
     @GeneratedValue
@@ -13,7 +13,7 @@ public class Group {
     private String name;
 
     @OneToMany(mappedBy="group", cascade=CascadeType.ALL)
-    private List<Contact> contacts = new ArrayList<>();
+    private List<Contact> contacts = new  ArrayList<>();
 
     public Group() {}
 

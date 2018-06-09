@@ -32,6 +32,7 @@ public class ContactServiceImpl implements ContactService {
         contactDAO.delete(ids);
     }
 
+
     @Transactional(readOnly=true)
     public List<Group> listGroups() {
         return groupDAO.list();
